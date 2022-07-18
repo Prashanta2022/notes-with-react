@@ -1,7 +1,12 @@
 import React from 'react';
 
-const context = () => {
-  return <div>context</div>;
-};
+const NotesContext = React.createContext ( {
+  currentNote:null,
+  notes:[
+    {id:1, text:'Do homework'},
+    {id:2, text:'Take out trash'},
+    {id:3, text:'Clean room'}
+  ]
+});
 
-export default context;
+export default NotesContext;

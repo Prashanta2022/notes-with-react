@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useContext, useReducer } from 'react';
+import Nav from './components/Nav';
+import AddNote from './components/AddNote';
+import NoteList from './components/NoteList';
+import EditNote from './components/EditNote';
+import NotesContext from './context';
+import notesReducer from './reducer';
+import './App.css'
 
 function App() {
+  const initialState = useContext(NotesContext);
+  const [state, dispatch] = useReducer(notesReducer, initialState);
   return (
-    <div className="App">
-      <h1>Let&apos;s Build note with react.</h1>
-    </div>
+    <NotesContext.Provider value={{ state, dispatch }}>
+      <Nav />
+      {state.currentNote === null ? (
+        <div>
+          <AddNote />
+          <NoteList />
+        </div>
+      ) : (
+        <EditNote />
+      )}
+    </NotesContext.Provider>
   );
 }
 
