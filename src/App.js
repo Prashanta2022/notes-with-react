@@ -13,8 +13,6 @@ function App() {
   return (
     <NotesContext.Provider value={{ state, dispatch }}>
       <Nav />
-      <AddNote />
-      <NoteList />
       {state.currentNote === null ? (
         <div>
           <AddNote />
