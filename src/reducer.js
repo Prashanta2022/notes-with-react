@@ -5,7 +5,7 @@ export default function reducer(state, action) {
   switch (action.type) {
     case 'ADD_NOTE':
       const newNote = {
-        id: uuid.v4(),
+        id: uuid,
         text: action.payload,
       };
 

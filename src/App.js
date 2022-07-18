@@ -5,7 +5,7 @@ import NoteList from './components/NoteList';
 import EditNote from './components/EditNote';
 import NotesContext from './context';
 import notesReducer from './reducer';
-import './App.css'
+import './App.css';
 
 function App() {
   const initialState = useContext(NotesContext);
@@ -13,6 +13,8 @@ function App() {
   return (
     <NotesContext.Provider value={{ state, dispatch }}>
       <Nav />
+      <AddNote />
+      <NoteList />
       {state.currentNote === null ? (
         <div>
           <AddNote />
